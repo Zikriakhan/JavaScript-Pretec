@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* *{
+        padding: 0;
+        margin: 0;
+    }
+    .man{
+        width: 400px;
+        height: 200px;
+        color: rgb(92, 85, 60);
+        border-radius: 20px;
+        margin: auto 530px;
+        margin-top: 200px;
+        background-color:aqua;
+
+    }
+    .uniter{
+        margin-left:30px ;
+        width: 200px;
+        height: 50px;
+        font-size: 20px;
+        color: brown;
+        background-color: blue  ;
+
+    }
+    .inp{
+        width: 100px;
+
+    }
+    .eav{
+        wy
+    }
+    .in{
+        width: 100px;
+    } */
+    #as {
+    position: relative;
+    left: 300px;
+    right: 7px;
+    top: 170px;
+    width: 384px;
+    height: 200px;
+    background-color: rgba(1, 0, 0, 0.424);
+    border-radius: 30px;
+}
+#name{
+    position: absolute;
+    left: 80px;
+    right: -7px;
+    top: 20px;
+}
+.eav{
+    position: relative;
+    left: 100px;
+    font-size: 20PX;
+    color: blue;
+    left: 98px;
+
+}
+#un{
+    position: relative;
+    left: 45px;
+
+}
+h2{
+    color:darkred;
+    
+}
+
+
+</style>
+<body>
+    <div id="as">
+    <div id="name">
+    <div class="man">
+    <div class="uniter">
+        <h2 id="un">Unit Convoter</h2>
+    </div>
+    
+    <div class="inpu">
+       foot
+        <input type="text"id="foot">
+    </div>
+    <div class="eav">
+        =
+    </div>
+    <div class="in">
+        inch
+        <input type="text"id="inch">
+    </div>
+    </div></div>
+</div>
+    <script>
+let foot = document.getElementById("foot")
+let inch = document.getElementById("inch")
+foot.addEventListener("input" , function(){
+    // /console.log("test>>>>>>>>>")
+    //foot=inch*12;
+    let f = this.value;
+    let i = f*12;
+    inch.value = i;
+    
+})
+inch.addEventListener("input",function(){
+    
+    let i = this.value;
+    let f = i / 12;
+    if(!Number.isInteger(f)){  
+        f= f.toFixed(2)
+    }
+    foot.value = f;
+    
+})
+    </script>
+</body>
+</html>

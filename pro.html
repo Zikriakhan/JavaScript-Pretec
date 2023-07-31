@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            /* background-color: darkslategrey;     */
+        }
+        button{
+            width: 134px;
+    height: 48px;
+            position: relative;
+            top: 244px;;
+            left: 550px;
+            font-size: 20px;
+            color: black;
+            background-color: white;
+        }
+        button:hover{
+            color:black;
+            background-color: chartreuse;
+        }
+        #qwe{
+            position: relative;
+            top: 238px;
+    left: 566px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h3 id="qwe">asd</h3>
+    <button onclick="color()" id="btn">Click Me</button>
+    <script>
+        //  let color 16777215 = ['red','green','blue','black','brown','coral'];
+        //  let i = 0;
+
+        let color = ()=>{
+
+       
+            let rendom = Math.floor(Math.random() * 16777215    )
+           
+           let number = "#" + rendom.toString(16)
+        console.log(rendom,number  )
+        document.getElementById("qwe").innerHTML=number ;
+        
+        
+        document.body.style.backgroundColor=number;
+            document.getElementById("btn").addEventListener("click",color)    
+
+        }
+        color()
+         
+    </script>
+    
+</body>
+</html>

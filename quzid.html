@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+</head>
+<body>
+    <!-- css -->
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Island Moments', cursive;
+            box-sizing:border-box ;
+
+        }
+        html{
+            font-size: 62.5;
+        }
+
+
+         .main-div{
+            width: 218.5vh;
+            height: 100vh;
+           display: grid;
+           place-items: center;
+           background-color: grey;
+           color: black;
+           
+           
+
+        }
+        button{
+            margin-top: 10px;
+            margin-left: 60px;
+        }
+         .inner-div{
+            width: 100vh;
+            height: 200px;
+            background-color: rgb(188, 46, 46);
+            color: rgb(2, 2, 2);
+            border-radius: 20px;
+            box-shadow: 0 1rem 1rem --0.7rem rgba(0, 0, 0, 0.4);
+           
+        }
+        .inner-div ul{
+            margin-top: 20px;
+            padding: 4px;
+
+            margin-left: 20px;
+            
+        } 
+        .inner-div ul li{
+            list-style: none; 
+        }
+    #showScore{
+        background-color: wheat;
+        margin-top: 3rem;
+        padding: 3rem,4rem  ;
+        box-shadow: 0 1rem 1rem --0.7rem rgba(0, 0, 0, 0.4);
+    }
+    h2{
+        margin-left: 3px;
+    }
+    .scoreArea{
+        display: none;
+    }
+
+
+
+    </style>
+    <div class="main-div">
+        <div class="inner-div">
+            <h2 class="question">question come here</h2>
+            <ul>
+                <li>
+                    <input type="radio" name="answer" class="answer" id="ans1">
+                    <label for="ans1"id="option1"> Answer Optionq </label>
+                </li>
+                <li>
+                    <input type="radio"name="answer" class="answer" id="ans2">
+                    <label for="ans2"id="option2"> Answer Optionq </label>
+                </li><li>
+                    <input type="radio"name="answer" class="answer" id="ans3">
+                    <label for="ans3"id="option3"> Answer Optionq </label>
+                </li><li>
+                    <input type="radio"name="answer" class="answer" id="ans4">
+                    <label for="ans4"id="option4"> Answer Optionq  </label>
+                </li>
+            </ul>
+            <button id="submit">submit</button>
+            <div id="showScore" class="scoreArea">
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <!--Ende for  HTML -->
+    <!-- js -->
+    <script>
+        const quizDB = [
+    {
+        question: "Q1) Which language runs in a web browser?",
+        a: "Java",
+        b: "C",
+        c: "Python",
+        d: "javascript",
+        ans: "ans4",
+    },
+    {
+        question: "Q2) What does CSS stand for?",
+        a: "Central Style Sheets",
+        b: "Cascading Style Sheets",
+        c: "Cascading Simple Sheets",
+        d: "Cars SUVs Sailboats",
+        ans: "ans2",
+    },
+    {
+        question: "Q3) What does HTML stand for?",
+        a: "Hypertext Markup Language",
+        b: "Hypertext Markdown Language",
+        c: "Hyperloop Machine Language",
+        d: "Helicopters Terminals Motorboats Lamborginis",
+        ans: "ans1",
+    },
+    {
+        question: "Q4) What year was JavaScript launched?",
+        a: "1996",
+        b: "1995",
+        c: "1994",
+        d: "none of the above",
+        ans: "ans2",
+    },
+
+
+];
+const question = document.querySelector(".question");
+const option1 = document.querySelector("#option1");
+const option2 = document.querySelector("#option2");
+const option3 = document.querySelector("#option3");
+const option4 = document.querySelector("#option4");
+const submit = document.querySelector("#submit");
+const answers=document.querySelectorAll(".answer");
+const showScore =document.querySelector("#showScore")
+let questionCount=0;
+let score = 0;
+let ans = 0;
+
+const loadQuestion = () => {
+
+    questionList=quizDB[questionCount];
+
+    question.innerText=questionList.question
+
+    option1.innerText=questionList.a;
+    option2.innerText=questionList.b;
+    option3.innerText=questionList.c;
+    option4.innerText=questionList.d;
+
+}
+loadQuestion();
+
+const getCheckAnswer = () => {
+        let answer;
+        answers.forEach((curAnsElem) => {
+            if (curAnsElem.checked) {
+                answer = curAnsElem.id;   
+            }
+           
+            if(questionCount<quizDB.length){
+                loadQuestion()
+
+            }    
+        });
+      
+        return answer;
+        
+        }; 
+        const de=()=>{
+            answers.forEach((curAnsElem)=>curAnsElem.checked=false)
+
+        } 
+        
+        submit.addEventListener('click',() => {
+            const checkedAnswer = getCheckAnswer();
+            console.log(checkedAnswer)
+            // console.log("checkedAnswe")
+            if(checkedAnswer === quizDB[questionCount].ans){
+                score++
+            }
+            questionCount=questionCount+1;
+            de();
+            
+            if(questionCount < quizDB.length){
+                loadQuestion();
+            }
+            else{
+                showScore.innerHTML=`<h3> You Score ${Score}/${quizDB.length}👌👌👌👌 </3>
+                    <button class ="btn" onclick= "locantion.relaod()"> Play Again</button>`;
+                    showScore.classList.remove('scoreArea');
+                    
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .main {
+        width: 296px;
+        height: 396px;
+        background-color: black;
+        color: white;
+        font-size: 20px;
+        position: relative;
+        left: 110px;
+        top: 39px;
+        border-radius: 25px;
+
+
+    }
+
+    .main1 {
+        position: relative;
+        left: 25px;
+        top: 30px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    button {
+        width: 60px;
+        height: 30px;
+        font-size: 14px;
+        border-radius: 20px;
+    }
+    button:hover{
+        background-color: brown;
+        color: peru;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    .abc {
+        width: 306px;
+        height: 374px;
+        background-color: black;
+        color: white;
+        position: relative;
+        left: 433px;
+        top: -374px;
+        border-radius: 25px;
+    }
+    .abcd{
+        position: relative;
+        left: 25px;
+        top: 30px
+    }
+    .abc > .abcd>h2:nth-child(2){
+        display: inline;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <div class=" main1">
+            <div>
+                <h1>Grading System</h1>
+                <br>
+
+                English
+                <input style="height: 20px; width:140px;" type="number" placeholder="Enter in number is" name="English"
+                    id="e">
+                <br>
+                <br>
+                Math
+                <input style="height: 20px; width:140px;" type="number" placeholder="Enter in number is" name="Math"
+                    id="m">
+                <br>
+                <br>
+                Physics
+                <input style="height: 20px; width:140px;" type="number" placeholder="Enter in number is" name="Physics"
+                    id="p">
+                <br>
+                <br>
+                Computer
+                <input style="height: 20px; width:140px;" type="number" placeholder="Enter in number is" name="Computer"
+                    id="c">
+                <br>
+                <br>
+                Sciences
+                <input style="height: 20px; width:140px;" type="number" placeholder="Enter in number is" name="Sciences"
+                    id="s">
+                <br>
+                <br>
+              
+            </div>
+            <div>
+            </div>
+            <button onclick="total()">Total</button>
+
+            <button id="av" onclick="Averag()">Averages</button>
+            <button onclick="gpa()">GPA</button>
+            <button onclick="Grade()">Grades</button>
+                
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="abc">
+        <div class="abcd">
+            <h2>Total number : 500 </h2>
+            <H2>sum : </H2> <span  id="btn"></span>
+            <H2>Average :</H2> <span id="btns"></span>
+           
+            <H2>Grade:</H2> <span id="gense"></span>
+            <H2>GPA:</H2><SPan id="gpas"></SPan>
+               
+            
+        </div>
+    </div>
+
+
+
+    <script>
+        function total() {
+            console.log("zikria khan")
+
+
+            let sub1 = parseInt(document.getElementById("e").value)
+            let sub2 = parseInt(document.getElementById("m").value)
+            let sub3 = parseInt(document.getElementById("p").value)
+            let sub4 = parseInt(document.getElementById("c").value)
+            let sub5 = parseInt(document.getElementById("s").value)
+            if (sub1 > 100 || sub2 > 100 || sub3 > 100 || sub4 > 100 || sub5 > 100) {
+                alert("Roan number")
+            }
+            else if (p) {
+                let Total = sub1 + sub2 + sub3 + sub4 + sub5;
+                document.getElementById("btn").innerHTML = Total
+            }
+            // var Average = Total/5;
+            // document.getElementById("btns").innerHTML=Average+"%";
+
+            // }
+
+
+
+
+        }
+
+        function Averag() {
+            console.log("zikrias")
+            let av = document.getElementById("av")
+            var sub1 = parseInt(document.getElementById("e").value)
+            var sub2 = parseInt(document.getElementById("m").value)
+            var sub3 = parseInt(document.getElementById("p").value)
+            var sub4 = parseInt(document.getElementById("c").value)
+            var sub5 = parseInt(document.getElementById("s").value)
+            var Total = sub1 + sub2 + sub3 + sub4 + sub5;
+
+            var Average = Total / 5;
+            var asd = document.getElementById("btns").innerHTML = Average + "%";
+
+        }
+        function gpa() {
+            console.log("::asasd")
+            let gpas = parseInt(document.getElementById("numbers").value)
+            
+
+            // var sub1 = parseInt(document.getElementById("e").value)
+            // var sub2 = parseInt(document.getElementById("m").value)
+            // var sub3 = parseInt(document.getElementById("p").value)
+            // var sub4 = parseInt(document.getElementById("c").value)
+            // var sub5 = parseInt(document.getElementById("s").value)
+            // let Total = sub1 + sub2 + sub3 + sub4 + sub5;
+            // var Average = Total / 5;
+            // document.getElementById("btns")
+            // let as = document.getElementById("btns") .innerHTML ="btns"
+            // var asd =  document.getElementById("btns");
+            if (Average >= 85 && Average <= 100) {
+                document.getElementById("gpas").innerHTML = "gende A+" + "AND " + "The GPA of:4.00 ";
+
+
+            }
+            else if (Average >= 80 && Average <= 84) {
+                console.log("zikria khna")
+                document.getElementById("gpas").innerHTML = "gende A-" + "AND " + "The GPA of:3.67 ";
+
+
+            }
+            else if (Average >= 75 && Average <= 79) {
+                document.getElementById("gpas").innerHTML = "gende B+" + "AND " + "The GPA of:3.33 ";
+
+
+            }
+            else if (Average >= 71 && Average <= 74) {
+                document.getElementById("gpas").innerHTML = "gende B" + "AND " + "The GPA of:3.00 ";
+
+
+            }
+            else if (Average >= 68 && Average <= 70) {
+                document.getElementById("gpas").innerHTML = "gende B-" + "AND " + "The GPA of:2.67 ";
+
+
+            }
+            else if (Average >= 64 && Average <= 67) {
+                document.getElementById("gpas").innerHTML = "gende C+" + "AND " + "The GPA of:2.33 ";
+
+
+            }
+            else if (Average >= 61 && Average <= 63) {
+                document.getElementById("gpas").innerHTML = "gende C" + "AND " + "The GPA of:2.00 ";
+
+
+            }
+            else if (Average >= 58 && Average <= 60) {
+                document.getElementById("gpas").innerHTML = "gende C-" + "AND " + "The GPA of:1.67 ";
+
+
+            }
+            else if (Average >= 54 && Average <= 57) {
+                document.getElementById("gpas").innerHTML = "gende D+" + "AND " + "The GPA of:1.30 ";
+
+
+            }
+            else if (Average >= 50 && Average <= 53) {
+                document.getElementById("gpas").innerHTML = "gende D" + "AND " + "The GPA of:1.00 ";
+
+
+            }
+            else if (Average >= 1 && Average <= 49) {
+                document.getElementById("gpas").innerHTML = "Fall" + "AND " + "The GPA of:0.sum Think ";
+
+
+            }
+
+
+
+        }
+        function Grade() {
+            // console.log("zikria khna")
+            var sub1 = parseInt(document.getElementById("e").value)
+            var sub2 = parseInt(document.getElementById("m").value)
+            var sub3 = parseInt(document.getElementById("p").value)
+            var sub4 = parseInt(document.getElementById("c").value)
+            var sub5 = parseInt(document.getElementById("s").value)
+            let Total = sub1 + sub2 + sub3 + sub4 + sub5;
+            var Average = Total / 5;
+            // document.getElementById("btns")
+            // let as = document.getElementById("btns") .innerHTML ="btns"
+            // var asd =  document.getElementById("btns");
+            if (Average >= 80 && Average <= 100) {
+                document.getElementById("gense").innerHTML = "gende A+";
+
+
+            }
+            else if (Average >= 70 && Average <= 80) {
+                console.log("zikria khna")
+                document.getElementById("gense").innerHTML = "gende A";
+
+
+            }
+            else if (Average >= 60 && Average <= 70) {
+                document.getElementById("gense").innerHTML = "gende B";
+
+
+            }
+            else if (Average >= 50 && Average <= 40) {
+                document.getElementById("gense").innerHTML = "gende C";
+
+
+            }
+            else if (Average >= 30 && Average <= 40) {
+                document.getElementById("gense").innerHTML = "gende F";
+
+
+            }
+        }
+       
+    </script>
+
+</body>
+
+</html>
